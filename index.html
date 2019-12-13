@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- <meta charset="utf-8" name="referrer" content="no-referrer"> -->
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<title>project</title>
+		<link href="//at.alicdn.com/t/font_1247454_m6ljqbxnxb.css" rel="stylesheet" />
+		<!-- <script src="https://cdn.bootcss.com/element-ui/2.10.1/index.js"></script> -->
+		<div style="display: none;">
+			<!-- 引入cnzz统计 -->
+			<script type="text/javascript" src="https://s4.cnzz.com/z_stat.php?id=1277880647&web_id=1277880647"></script>
+		</div>
+		<script>
+			// 添加统计
+			_czc.push(["_setAutoPageview", false]);
+			// $.getScript("https://api.map.baidu.com/location/ip?ak=RwdRf8eg8FbO8VOpOaw0i8DxnPbCp4TG&callback=showLocation");
+			function showLocation(data) {
+				let param ={
+					cityName:data.content.address_detail.city,
+					cityCode:""
+				}
+				if(param.cityName=="济南市") param.cityCode = "3701";
+			    // console.log(data);
+				if(localStorage.getItem('addr')){
+					var ljs = document.getElementById("addrApi");
+					ljs.parentNode.removeChild(ljs);
+				}else{
+					localStorage.setItem("addr",JSON.stringify(param));
+				}
+				
+			}
+		</script>
+		<!-- 百度定位 -->
+		<script type="text/javascript" id="addrApi" src="https://api.map.baidu.com/location/ip?ak=RwdRf8eg8FbO8VOpOaw0i8DxnPbCp4TG&callback=showLocation"></script>
+		<!-- <script>
+			//百度统计相关
+			var _hmt = _hmt || [];
+			(function() {
+				var hm = document.createElement("script");
+				hm.src = "https://hm.baidu.com/hm.js?1407313621da36ba89a36c96fa14db57";
+				hm.id = "baidu_tj";
+				var s = document.getElementsByTagName("script")[0];
+				s.parentNode.insertBefore(hm, s);
+			})();
+		</script> -->
+	</head>
+	<body>
+		<div id="app"></div>
+		<!-- built files will be auto injected -->
+	</body>
+</html>
